@@ -1,5 +1,5 @@
 defmodule Cards do
-  def create_deck do 
+  def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Hearts", "Diamond"]
 
@@ -15,7 +15,7 @@ defmodule Cards do
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
-  
+
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
