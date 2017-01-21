@@ -41,7 +41,8 @@ defmodule Discuss.TopicController do
   end
 
   def update(conn, %{"id" => topic_id, "topic" => topic}) do
-    changeset = Repo.get(Topic, topic_id) |> Topic.changeset(topic)
+    old_topic = Repo.get(Topic, topic_id) 
+    changeset = Topic.changeset(topic)
 
     case Repo.update(changeset) do
       {:ok, _topic} ->
@@ -49,7 +50,10 @@ defmodule Discuss.TopicController do
         |> put_flash(:info, :"Topic updated!")
         |> redirect(to: topic_path(conn, :index))
       {:error, changeset} ->
-        render conn, "edit.html", changeset: changeset
+        conn
+        |> assign(changeset: changeset)
+        |> assign(topic: old_topic)
+        |> render("edit.html")
     end
   end
 end
