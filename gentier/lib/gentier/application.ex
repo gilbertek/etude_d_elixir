@@ -9,9 +9,13 @@ defmodule Gentier.Application do
     import Supervisor.Spec, warn: false
 
     # Define workers and child supervisors to be supervised
+    # Starts a worker by calling: Gentier.Worker.start_link(arg1, arg2, arg3)
     children = [
-      # Starts a worker by calling: Gentier.Worker.start_link(arg1, arg2, arg3)
-      # worker(Gentier.Worker, [arg1, arg2, arg3]),
+      worker(Gentier.Producer, [0]),
+      worker(Gentier.ProducerConsumer, []),
+      worker(Gentier.Consumer, [], id: :a),
+      worker(Gentier.Consumer, [], id: :b),
+      worker(Gentier.Consumer, [], id: :c),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
