@@ -15,4 +15,11 @@ defmodule Solutions do
   def hello do
     :world
   end
+
+  def process do
+    Task.async(fn -> 
+      IO.puts "Get ticker!" 
+      :timer.sleep(2000)
+    end)
+  end
 end
