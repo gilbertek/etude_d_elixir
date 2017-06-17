@@ -6,7 +6,7 @@ defmodule Solutions.Frequency do
   """
   def count(list) do
     Enum.reduce(list, %{}, fn(n, acc) ->
-      Map.update(acc, n, 1, &(&1 +1))
+      Map.update(acc, n, 1, &(&1 + 1))
     end)
   end
 
