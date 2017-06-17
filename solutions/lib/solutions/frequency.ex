@@ -10,7 +10,7 @@ defmodule Solutions.Frequency do
     end)
   end
 
-  def reverse() do
-    
+  def reverse(list) do
+    list
   end
 end
