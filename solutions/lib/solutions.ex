@@ -17,8 +17,8 @@ defmodule Solutions do
   end
 
   def process do
-    Task.async(fn -> 
-      IO.puts "Get ticker!" 
+    Task.async(fn ->
+      IO.puts "Get ticker!"
       :timer.sleep(2000)
     end)
   end
