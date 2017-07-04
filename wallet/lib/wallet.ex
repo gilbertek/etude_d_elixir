@@ -7,15 +7,15 @@ defmodule Wallet do
   """
   alias Wallet.WalletServer
 
-  def deposit(wallet, money) do
-    WalletServer.deposit(wallet, money)
+  def deposit(wallet, amount) do
+    WalletServer.deposit(wallet, amount)
   end
 
-  def withdraw(wallet, money) do
-    WalletServer.withdraw(wallet, money)
+  def withdraw(wallet, amount) do
+    WalletServer.withdraw(wallet, amount)
   end
 
-  def amount(wallet) do
-    WalletServer.amount(wallet)
+  def balance(wallet) do
+    WalletServer.balance(wallet)
   end
 end

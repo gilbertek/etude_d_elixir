@@ -13,16 +13,16 @@ defmodule Wallet.WalletServer do
     GenServer.call(wallet, :name)
   end
 
-  def deposit(wallet, money) do
-    GenServer.cast(wallet, {:deposit, money})
+  def deposit(wallet, amount) do
+    GenServer.cast(wallet, {:deposit, amount})
   end
 
-  def withdraw(wallet, money) do
-    GenServer.cast(wallet, {:withdraw, money})
+  def withdraw(wallet, amount) do
+    GenServer.cast(wallet, {:withdraw, amount})
   end
 
-  def amount(wallet) do
-    GenServer.call(wallet, :amount)
+  def balance(wallet) do
+    GenServer.call(wallet, :balance)
   end
 
   # Server Api
@@ -47,7 +47,7 @@ defmodule Wallet.WalletServer do
     {:noreply, state}
   end
 
-  def handle_call(:amount, _, state) do
+  def handle_call(:balance, _, state) do
     {:reply, state.amount, state}
   end
 
