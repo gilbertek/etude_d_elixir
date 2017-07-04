@@ -25,13 +25,13 @@ defmodule OtpBank do
   end
 
   # Server API
-  def loop(balance) do
+  defp loop(balance) do
     receive do
       {:deposit, amount} -> loop(balance + amount)
       {:withdraw, amount} -> loop(balance - amount)
       {:balance, parent}
         -> send(parent, {:balance, balance})
-      loop(balance)
+        loop(balance)
     end
   end
 end
