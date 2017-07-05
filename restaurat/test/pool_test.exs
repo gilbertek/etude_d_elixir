@@ -20,22 +20,22 @@ defmodule Restaurat.PoolTest do
   end
 
   test "it responds with different workers when asked twice with different ids", %{pool_pid: pid} do
-    # assert Restaurat.Pool.worker(pid, "xxx") != Restaurat.Pool.worker(pid, "yyy")
+    assert Restaurat.Pool.worker(pid, "xxx") != Restaurat.Pool.worker(pid, "yyy")
   end
 
   test "pool and other workers are not killed when one worker is killed", %{pool_pid: pid} do
     w1 = Restaurat.Pool.worker(pid, "xxx")
-    # w2 = Restaurat.Pool.worker(pid, "yyy")
+    w2 = Restaurat.Pool.worker(pid, "yyy")
 
-    # Process.exit(w1, :shutdown)
-    # ref = Process.monitor(w1)
-    # assert_receive {:DOWN, ^ref, _, _, _}
-    #
-    # assert Process.alive?(pid)
-    # assert Process.alive?(w2)
-    # refute Process.alive?(w1)
+    Process.exit(w1, :shutdown)
+    ref = Process.monitor(w1)
+    assert_receive {:DOWN, ^ref, _, _, _}
 
-    # assert w1 != Restaurat.Pool.worker(pid, "xxx")
-    # assert w2 == Restaurat.Pool.worker(pid, "yyy")
+    assert Process.alive?(pid)
+    assert Process.alive?(w2)
+    refute Process.alive?(w1)
+
+    assert w1 != Restaurat.Pool.worker(pid, "xxx")
+    assert w2 == Restaurat.Pool.worker(pid, "yyy")
   end
 end
