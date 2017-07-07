@@ -31,7 +31,8 @@ defmodule Tik.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.11.2"},
-      {:credo, "~> 0.8.1"}
+      {:credo, "~> 0.8.1"},
+      {:mix_test_watch, "~> 0.3", only: :dev, runtime: false}
     ]
   end
 end

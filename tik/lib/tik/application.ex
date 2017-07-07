@@ -12,6 +12,7 @@ defmodule Tik.Application do
     children = [
       # Starts a worker by calling: Tik.Worker.start_link(arg1, arg2, arg3)
       # worker(Tik.Worker, [arg1, arg2, arg3]),
+      worker(Tik.Portfolio, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
