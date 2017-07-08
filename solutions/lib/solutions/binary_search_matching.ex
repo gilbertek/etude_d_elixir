@@ -1,4 +1,6 @@
 defmodule BinarySearchMatching do
+  @moduledoc false
+
   def search(items, value), do: search(items, value, 0, tuple_size(items) - 1)
 
   defp search(items, value, bottom, top) do

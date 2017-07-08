@@ -1,4 +1,6 @@
-defmodule BinarySearch do
+defmodule Solutions.BinarySearch do
+  @moduledoc false
+
   def search(items, value) do
     search(items, value, 0, tuple_size(items) - 1)
   end
