@@ -1,5 +1,7 @@
 defmodule Solutions.AllergiesBitShifting do
-  @moduledoc false
+  @moduledoc """
+  Use Bitwise operation &&& to check allergic_to? flags.
+  """
 
   use Bitwise, only_operators: true
 
