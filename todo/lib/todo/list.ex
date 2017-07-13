@@ -2,18 +2,28 @@ defmodule Todo.List do
   use GenServer
   alias Todo.Cache
 
+  @type t :: pid
+  @type state :: %{
+    name: String.t,
+    items: [Todo.Item.t]
+  }
+
+  @spec items(t) :: [Todo.Item.t]
   def items(list) do
     GenServer.call(list, :items)
   end
 
+  @spec add(t, Todo.Item.t) :: :ok
   def add(list, item) do
     GenServer.cast(list, {:add, item})
   end
 
+  @spec update(t, Todo.Item.t) :: :ok
   def update(list, item) do
     GenServer.cast(list, {:update, item})
   end
 
+  @spec name(t) :: String.t
   def name(list) do
     GenServer.call(list, :name)
   end

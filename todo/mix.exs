@@ -29,6 +29,6 @@ defmodule Todo.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:dialyze, only: [:dev, :test]}]
   end
 end
