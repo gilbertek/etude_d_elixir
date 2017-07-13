@@ -29,5 +29,5 @@ defmodule Solutions.AllergiesPattern do
   defp list(<<l :: size(1), r :: size(7)>>, acc), do:
     list(<<l :: size(1), r :: size(7)>>, ["eggs" | acc])
 
-  defp list(_, ac), do: acc
+  defp list(_, acc), do: acc
 end
