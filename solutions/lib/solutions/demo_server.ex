@@ -109,7 +109,12 @@ defmodule Solutions.DemoServerRunner do
         end)
       end
 
-      :timer.sleep(:infinity)
+      Process.flag(:trap_eixt, true)
+
+      receive do
+        message ->
+          IO.inspect(message)
+      end
     end)
   end
 end
