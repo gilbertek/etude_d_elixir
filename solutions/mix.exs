@@ -29,8 +29,9 @@ defmodule Solutions.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:mix_test_watch, "~> 0.4", only: :dev, runtime: false},
-      {:credo, "~> 0.8.1"},
+      {:mix_test_watch, "~> 0.4.1", only: :dev, runtime: false},
+      {:credo, "~> 0.8.4"},
+      {:quixir, "~> 0.9", only: :test},
     ]
   end
 end
